@@ -183,7 +183,7 @@ module DistrictCnSelector
         content_tag(
           :div, 
           [public_send("select_#{type}"), build_hidden, javascript_tag].join.html_safe, 
-          :class => "#{secure_random}"
+          :class => "#{secure_random} district_select"
         )
       end
 
@@ -194,9 +194,8 @@ module DistrictCnSelector
         instance_tag.to_select_tag(
           selected_scopes.unshift(BLANK[type]),
           {:selected =>selected_scope && selected_scope[1]}.merge(options),
-          {:id=>nil,:class=>type}.merge(html_options)
+          {:id=>nil,:class=>"#{type} input-small"}.merge(html_options)
         )
       end
-
     end
 end
